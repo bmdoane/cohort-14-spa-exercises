@@ -1,0 +1,28 @@
+.addBlue {
+	color: blue;
+}
+
+.blueBorder {
+	border: 1px dashed blue;
+}
+
+.largeFont {
+	font-size: 3em;
+}
+
+.roundedBorder {
+	border-radius: 10px;
+}
+
+.goBold {
+	font-weight: 900;
+}
+
+.italicize {
+	font-style: italic;
+}
+
+.blocked {
+	display: block;
+	margin: 2px;
+}

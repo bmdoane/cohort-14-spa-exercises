@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sandwich Maker</title>
+	<link rel="stylesheet" href="Sandwich.css">
+</head>
+<body>
+	<nav>
+		<h1>Great Gustavos' Grilled Grinders</h1>
+	</nav>
+
+	<div id="sandwich-options"></div>
+
+
+	<div id="sandwich-select">
+		<select id="bread-chooser" name="Bread" multiple autofocus>
+	<!-- 	Value in option needs to match key in IIFE script -->
+	<!-- selected disabled in first option allows to have an unselectable option as a header -->
+		  <option class="head" disabled>Bread</option>
+		  <option value="Marble_Rye">Marble Rye</option>		   
+		  <option value="Pumpernickel">Pumpernickel</option>
+		  <option value="Sourdough">Sourdough</option>
+		  <option value="Gluten-Free_Symbiotic_Loaf">Gluten-Free Symbiotic Loaf</option>
+		</select>
+		<select id="meat-chooser" name="Meat" multiple>
+		  <option class="head" disabled>Meat</option>
+		  <option value="Turkey">Turkey</option>		   
+		  <option value="Olive_Loaf">Olive Loaf</option>
+		  <option value="Capicola">Capicola</option>
+		  <option value="BlackForest_Ham">BlackForest Ham</option>
+		</select>
+		<select id="cheese-chooser" name="Cheese" multiple>
+		  <option class="head" disabled>Cheese</option>
+		  <option value="American">American</option>		   
+		  <option value="Cheddar">Cheddar</option>
+		  <option value="Havarti">Havarti</option>
+		  <option value="Swiss">Swiss</option>
+		</select>
+		<select id="condiment-chooser" name="Condiment" multiple>
+		  <option class="head" disabled>Condiment</option>
+		  <option value="Pickles">Pickles</option>		   
+		  <option value="Meat_Hotsauce">Meat Hotsauce</option>
+		  <option value="Oil_and_Vinegar">Oil and Vinegar</option>
+		  <option value="Salt_and_Pepper">Salt and Pepper</option>
+		</select>
+		<select id="veggie-chooser" name="Veggies" multiple>
+		  <option class="head" disabled>Veggies</option>
+		  <option value="Lettuce">Lettuce</option>		   
+		  <option value="Ghost_Peppers">Ghost Peppers</option>
+		  <option value="Tomatoes">Tomatoes</option>
+		  <option value="Onions">Onions</option>
+		</select>
+	</div>
+	<div>
+		<h3>Thanks for eating at Gustavos!!</h3>
+		<h4>Your order:</h4>
+		<div id="sandwich-parts"></div>
+		<h4>The damage:</h4>
+		<div id="sandwich-price"></div>
+	</div>
+
+	<script src="javascripts/SandwichMaker.js"></script>
+	<script src="javascripts/Bread.js"></script>	
+	<script src="javascripts/Meat.js"></script>	
+	<script src="javascripts/Cheese.js"></script>	
+	<script src="javascripts/Condiments.js"></script>	
+	<script src="javascripts/Veggies.js"></script>		
+	<script src="javascripts/Main.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+body {
+	width: 100%;
+}
+
+#control {
+	padding: 10px;
+}
+
+#container {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.cardStyle {
+	width: 96%;
+	height: 100px;
+	background: yellow;
+	color: red;
+	margin-bottom: 10px;
+	border: 2px solid green;
+	border-radius: 10px;
+}
+
+.card p {
+	text-align: center;
+	padding: 10px;
+}
+
+.deleteBtn {
+	color: white;
+	background: darkgreen;
+	border-radius: 5px;
+	margin-left: 416px;
+}

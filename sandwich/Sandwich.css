@@ -1,0 +1,10 @@
+.head {
+	color: red;
+	text-decoration: underline;
+	font-size: 1.8em;
+}
+
+select {
+	color: blue;
+}
+
