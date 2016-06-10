@@ -16,7 +16,7 @@ function createCard() {
   var newCard = `
 		<div id='card' class='cardStyle'>
 			<p>${inputEl.value}</p>
-			<button id='deleteBtn-${counter}' class='deleteBtn'>Delete</button>
+			<button id='deleteBtn-${counter}' class='delete'>Delete</button>
 		</div>`;
   newDiv.innerHTML = newCard; 
   console.log("newDiv", newDiv);
@@ -27,7 +27,7 @@ function createCard() {
 	// Assign the event listener to the button
 	// currentTarget = button, parentNode = card, parentNode = div(newDiv)
 	document.getElementById(`deleteBtn-${counter}`).addEventListener('click', function(event) {
-		console.log("event.currentTarget", event.currentTarget);
+		console.log("event.currentTarget", event.currentTarget); // currentTarget where the event is attached - target is what is clicked on
 	  containerEl.removeChild(event.currentTarget.parentNode.parentNode); // This is fragile.
 	  // Best practice to remove is targeting the id of the card
 
