@@ -65,14 +65,18 @@ var comedians = [
 ];
 
 
-var userInput = document.getElementById("userInput");
-var comedianEl = document.getElementById("card-container");
-var card = document.getElementsByClassName('cardBorder');
+var userInput = document.getElementById(`userInput`);
+var comedianEl = document.getElementById(`card-container`);
+var card = document.getElementsByClassName(`cardBorder`);
 var counter = 1;
 var comedianString = "";
+var activeCard;
+var bioId;
+var bioText;
 
+// Function to define the card elements for use in several differnt functions
 function comedianCards() {
-	var cardEl = document.getElementsByClassName('cardBorder');
+	var cardEl = document.getElementsByClassName(`cardBorder`);
 	return cardEl
 }
 
@@ -83,12 +87,14 @@ function buildDom(comedianArray) {
 		}
 		comedianString += `
 			<div id='card--${counter}' class='col-md-4 cardBorder'>
-				<h3 class='title editable'>${comedianArray[i].title}</h3>
-				<p class='name editable'>${comedianArray[i].name}</p>
-				<p class='bio editable'>${comedianArray[i].bio}</p>
+				<h3 class='title'>${comedianArray[i].title}</h3>
+				<p class='name'>${comedianArray[i].name}</p>
+				<div id='bio-wrapper'>
+				<p id='bio--${counter} class='biography editable'>${comedianArray[i].bio}</p>
+				</div>
 				<img class='image' src='${comedianArray[i].image}'>
-				<p class='birth editable'>Born: ${comedianArray[i].lifespan.birth}</p>
-				<p class='death editable'>Died: ${comedianArray[i].lifespan.death}</p>
+				<p class='birth'>Born: ${comedianArray[i].lifespan.birth}</p>
+				<p class='death'>Died: ${comedianArray[i].lifespan.death}</p>
 			</div>`;
 		if ((i + 1) % 3 === 0) { 
 			comedianString += `</div>`;
@@ -109,47 +115,45 @@ buildDom(comedians);
 function addBackgroundColor() {
  	for (var i = 0; i < card.length; i++) {
  		if ([i] % 2 === 0) {
- 			card[i].classList.add('lightblueBack');
+ 			card[i].classList.add(`lightblueBack`);
  		} else {
- 			card[i].classList.add('yellowBack');
+ 			card[i].classList.add(`yellowBack`);
  		}
  	}
 }
 
-
-
-// Still have to figure out all of this functionality
-// Look at target methods - ie. closest
-
-
 // When you click on one of the person elements, a dotted border should appear around it.
-function activateEventListeners(event) {
+// When you click on one of the person elements, the text input should immediately gain focus so that you can start typing.
+// When there is a highlighted person element, and you begin typing in the input box, the person's biography should be immediately bound to what you are typing, letter by letter.
+function activateEventListeners() {
 	var comCards = comedianCards();
 	for (var i = 0; i < comCards.length; i++) {
 		comCards[i].addEventListener('click', function(event) {
-			var card = event.currentTarget;
-			console.log('event.target', event.target);
 			addBorder();
+			userInput.focus();
+			userInput.value = "";
+			activeCard = event.currentTarget;
+			console.log(`activeCard`, activeCard);
+			// How do I use these numbers to get the innerHTML to work
 		});
 	}
-	userInput.addEventListener("keyup", function(event) {
-		var inputText = event.target.value;
-		var newText = document.getElementsByClassName("editable");
-		newText[0].innerHTML = inputText;
+
+	userInput.addEventListener(`keyup`, function() {
+		var inputText = userInput.value;
+		bioText = activeCard.children[2];
+		bioText.innerHTML = inputText;
 		if (event.keyCode === 13) {
-			// can't get userInput to reset, lose focus and not be bound to mirror element.  Think this may be just for bio.  Refactor.
 			userInput.value = "";
 			userInput.blur();
-			// how to reset border here??
-		}	
+		}
 	});
 } 
-// When you click on one of the person elements, the text input should immediately gain focus so that you can start typing.
-// When there is a highlighted person element, and you begin typing in the input box, the person's biography should be immediately bound to what you are typing, letter by letter.
 // When you press the enter/return key when typing in the input field, then the content of the input field should immediately be blank.
 function addBorder() {
-	event.target.classList.add('border');
-	userInput.focus();
+	var comCards = comedianCards();
+	for (var i = 0; i < comCards.length; i++) {
+		comCards[i].classList.remove(`border`);
+	};
+	event.currentTarget.classList.add(`border`);
 }
-
 

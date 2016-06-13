@@ -12,6 +12,7 @@
 	border-radius: 5px;
 	margin: 10px 8px 10px 14px;
 	width: 300px;
+	height: 500px;
 }
 
 /* Added backgrounds through JS on alternate cards */
@@ -32,9 +33,15 @@
 	text-align: center;
 }
 
-.bio {
+#bio-wrapper {
+	height: 190px;	
+
+}
+
+.biography {
 	text-align: justified;
 	padding: 10px;
+	margin: 0 auto;
 }
 
 .image {
@@ -50,5 +57,5 @@
 }
 
 .border {
-	border: 2px dotted red;
+	border: 3px dotted red;
 }
