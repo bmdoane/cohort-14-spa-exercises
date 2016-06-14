@@ -34,10 +34,11 @@
 }
 
 #bio-wrapper {
-	height: 190px;	
-
+	height: 190px;
+	width: 264px;
 }
 
+/* Text will wrap in this element as long as there are spaces in string */
 .biography {
 	text-align: justified;
 	padding: 10px;

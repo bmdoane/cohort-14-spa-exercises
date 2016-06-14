@@ -85,12 +85,13 @@ function buildDom(comedianArray) {
 		if (i % 3 === 0) {
 			comedianString += `<div class='row'>`;
 		}
+		// Code works.  How do I use counters to get the innerHTML to work
 		comedianString += `
 			<div id='card--${counter}' class='col-md-4 cardBorder'>
 				<h3 class='title'>${comedianArray[i].title}</h3>
 				<p class='name'>${comedianArray[i].name}</p>
 				<div id='bio-wrapper'>
-				<p id='bio--${counter} class='biography editable'>${comedianArray[i].bio}</p>
+					<span class='biography editable'>${comedianArray[i].bio}</span>
 				</div>
 				<img class='image' src='${comedianArray[i].image}'>
 				<p class='birth'>Born: ${comedianArray[i].lifespan.birth}</p>
@@ -132,12 +133,13 @@ function activateEventListeners() {
 			addBorder();
 			userInput.focus();
 			userInput.value = "";
+			// Set currentTarget variable to use below to grab child element
 			activeCard = event.currentTarget;
 			console.log(`activeCard`, activeCard);
-			// How do I use these numbers to get the innerHTML to work
 		});
 	}
 
+// When you press the enter/return key when typing in the input field, then the content of the input field should immediately be blank.
 	userInput.addEventListener(`keyup`, function() {
 		var inputText = userInput.value;
 		bioText = activeCard.children[2];
@@ -148,10 +150,11 @@ function activateEventListeners() {
 		}
 	});
 } 
-// When you press the enter/return key when typing in the input field, then the content of the input field should immediately be blank.
+
 function addBorder() {
 	var comCards = comedianCards();
 	for (var i = 0; i < comCards.length; i++) {
+		// Remove the class on all before adding to target for isolated class effect
 		comCards[i].classList.remove(`border`);
 	};
 	event.currentTarget.classList.add(`border`);
